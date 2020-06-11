@@ -1,4 +1,5 @@
-
+# code is a byte string containing bytecode.
+# final is a string containing the representative python code of the bytecode.
 key = 'eval'
 template = "globals()[{}]"
 dyn = ''
@@ -57,5 +58,5 @@ for index,char in enumerate(command):
     code += b'\x83\x01'
     if index > 0:
         code += b'\x17\x00'
-code += b'\x83\x01'
+code += b'\x83\x01' # Payload on stack. Call eval.
 print(code)
